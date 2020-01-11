@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <!-- Add globals -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/fileHandler.js"></script>
+    <!-- INIT MONACO -->
+    <script type="module" src="./js/editor.js"></script>
+    <script src="./js/menubar.js"></script>
+    <link rel="stylesheet" href="./css/menubar.css">
+    <link rel="stylesheet" href="./css/editor.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/codicon.css">
+    <style>
+        @import url('./css/dm.css');
+    </style>
+    <title>WEPL</title>
+</head>
+
+<body>
+    <div class="titlebar">
+        <div class="titlebar-drag"></div>
+        <div class="titlebar-title"></div>
+        <div class="buttons">
+            <div class="btn min">
+                <span class="codicon codicon-chrome-minimize"></span>
+            </div>
+            <div class="btn max">
+                <span class="codicon codicon-chrome-maximize"></span>
+            </div>
+            <div class="btn close">
+                <span class="codicon codicon-chrome-close"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="main-content">
+        <div class="setup-dialog">
+            <button class="setup">Setup Project</button>
+        </div>
+        <div class="playground">
+            <div class="sideview">
+                <div class="open html">HTML</div>
+                <div class="open css">CSS</div>
+                <div class="open js">JS</div>
+            </div>
+            <div class="editorHTML"></div>
+            <div class="editorCSS"></div>
+            <div class="editorJS"></div>
+        </div>
+        <div class="downpanel">
+            <div class="downpanel-btn lang"></div>
+            <div class="downpanel-btn open-browser"><span class="codicon codicon-broadcast"></span> Go Live</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "wepl",
+  "version": "0.0.1",
+  "description": "Develop Web Apps, faster.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder ."
+  },
+  "author": "obnoxiousnerd",
+  "license": "ISC",
+  "dependencies": {
+    "custom-electron-titlebar": "^3.2.0",
+    "dialogs": "^2.0.1",
+    "electron-config": "^2.0.0",
+    "emmet-monaco-es": "^4.3.3",
+    "jquery": "^3.4.1",
+    "live-server": "^1.2.1",
+    "monaco-editor": "^0.19.0"
+  },
+  "build": {
+    "appId": "code.editor",
+    "productName": "WEPL",
+    "copyright": "Copyright © 2020 obnoxiosunerd",
+    "icon": "./app/icon/appicon.ico",
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./app/icon/appicon.ico",
+      "uninstallDisplayName": "WEPL",
+      "artifactName": "WEPLSetup-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "builder": "^5.0.0",
+    "electromon": "^1.0.10",
+    "electron": "^7.1.7",
+    "electron-builder": "^21.2.0"
+  }
+}
