@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "rimraf dist && electron-builder ."
+    "dist": "rimraf dist && electron-builder .",
+    "test-browser" : "electron app/js/browser.js"
   },
   "author": "obnoxiousnerd",
   "license": "ISC",

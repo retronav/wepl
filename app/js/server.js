@@ -16,22 +16,4 @@ function startServer(__dir) {
     };
     liveServer.start(params);
 }
-function createWindow() {
-    const { remote } = require('electron')
-    const path = require('path')
-    const BrowserWindow = remote.BrowserWindow;
-    let win = new BrowserWindow({
-        width: 1000,
-        height: 800,
-        icon : path.join(__dirname, '../icon/appicon.ico'),
-        resizable: true,
-        title: "Web Server",
-        webPreferences: {
-            nodeIntegration: true,
-            preload : `file://${__dirname}/promptHandler.js`
-        }
-    })
-    win.loadURL('http://127.0.0.1:80/')
-}
 module.exports.startServer = startServer;
-module.exports.createWindow = createWindow;

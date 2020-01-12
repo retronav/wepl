@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WEPL Browser</title>
+    <link rel="stylesheet" href="./css/codicon.css" />
+    <link rel="stylesheet" href="./css/browser.css" />
+    <script src="./js/browserHandler.js"></script>
+  </head>
+  <body>
+    <div class="search">
+      <input type="text" class="search-bar" />
+      <button class="search-btn submit">
+        <div class="codicon codicon-search"></div>
+      </button>
+      <button class="search-btn back">
+        <div class="codicon codicon-chevron-left"></div>
+      </button>
+      <button class="search-btn forward">
+        <div class="codicon codicon-chevron-right"></div>
+      </button>
+      <button class="search-btn refresh">
+        <div class="codicon codicon-refresh"></div>
+      </button>
+    </div>
+    <div class="autocomplete">
+    </div>
+    <div class="window">
+      <div class="indicator"></div>
+      <webview src="https://google.com"></webview>
+    </div>
+  </body>
+</html>

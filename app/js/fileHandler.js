@@ -9,6 +9,7 @@
     let url = require('url')
     let path = require('path')
     let ls = require(__dirname + '\\js\\server.js')
+    let bw = require(__dirname+'\\js\\browser.js')
     $('document').ready(() => {
         $('.setup').click(() => {
             $('.setup-dialog').hide()
@@ -20,7 +21,7 @@
             }).then(result => {
                 let __dir = result.filePaths[0]
                 $('.downpanel .open-browser').click(() => {
-                    ls.createWindow()
+                    bw.openBrowser('http://127.0.0.1:80')
                 })
                 $('title').html(__dir)
                 $('.titlebar-title').html($('title').html())
