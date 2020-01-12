@@ -3,28 +3,6 @@
     let { app, Menu } = require('electron').remote
     let { remote } = require('electron')
     var win = remote.getCurrentWindow()
-    let isMac = process.platform === 'darwin'
-
-    const template = [
-        {
-            label: {
-                label: 'File',
-                submenu: [
-                    isMac ? { role: 'close' } : { role: 'quit' }
-                ],
-            },
-            label: 'File',
-            submenu: [
-                { role: '' }
-            ]
-        }
-    ]
-
-    app.on('ready', () => {
-        const menu = Menu.buildFromTemplate(template)
-        Menu.setApplicationMenu(menu)
-    })
-
     function resizeE(elem) {
         var borderDiv = document.createElement("div");
         borderDiv.className = "resize-border";

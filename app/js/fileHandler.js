@@ -35,7 +35,6 @@
                     }
                     
                     window.editorHTML.setValue(data.toString());
-                    console.log(data.toString())
                 })
                 fs.readFile(path.join(__dir, './app.js'), function (err, data) {
                     if(err){
@@ -47,7 +46,6 @@
                     }
                     
                     window.editorJS.setValue(data.toString());
-                    console.log(data.toString())
                 })
                 fs.readFile(path.join(__dir, './styles.css'), function (err, data) {
                     if(err){
@@ -59,7 +57,6 @@
                     }
                     
                     window.editorCSS.setValue(data.toString());
-                    console.log(data.toString())
                 })
 
 

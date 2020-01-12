@@ -5,18 +5,18 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder ."
+    "dist": "rimraf dist && electron-builder ."
   },
   "author": "obnoxiousnerd",
   "license": "ISC",
   "dependencies": {
-    "custom-electron-titlebar": "^3.2.0",
     "dialogs": "^2.0.1",
     "electron-config": "^2.0.0",
     "emmet-monaco-es": "^4.3.3",
     "jquery": "^3.4.1",
     "live-server": "^1.2.1",
-    "monaco-editor": "^0.19.0"
+    "monaco-editor": "^0.19.0",
+    "prettier": "^1.19.1"
   },
   "build": {
     "appId": "code.editor",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "builder": "^5.0.0",
+    "custom-electron-titlebar": "^3.2.1",
     "electromon": "^1.0.10",
     "electron": "^7.1.7",
     "electron-builder": "^21.2.0"

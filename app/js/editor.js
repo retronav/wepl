@@ -58,6 +58,60 @@
 			automaticLayout: true,
 			fontLigatures: true,
 		});
+		monaco.languages.registerDocumentFormattingEditProvider('javascript', {
+			async provideDocumentFormattingEdits(model, options, token) {
+			  const prettier = require('prettier/standalone');
+			  const babylon = require('prettier/parser-babylon');
+			  const text = prettier.format(model.getValue(), {
+				parser: 'babylon',
+				plugins: [babylon],
+				singleQuote: true,
+			  });
+		  
+			  return [
+				{
+				  range: model.getFullModelRange(),
+				  text,
+				},
+			  ];
+			},
+		  });
+		monaco.languages.registerDocumentFormattingEditProvider('html', {
+			async provideDocumentFormattingEdits(model, options, token) {
+			  const prettier = require('prettier/standalone');
+			  const htmlParser = require('prettier/parser-html');
+			  const text = prettier.format(model.getValue(), {
+				parser: 'html',
+				plugins: [htmlParser],
+				singleQuote: false,
+			  });
+		  
+			  return [
+				{
+				  range: model.getFullModelRange(),
+				  text,
+				},
+			  ];
+			},
+		  });
+		monaco.languages.registerDocumentFormattingEditProvider('css', {
+			async provideDocumentFormattingEdits(model, options, token) {
+			  const prettier = require('prettier/standalone');
+			  const css = require('prettier/parser-postcss')
+			  const text = prettier.format(model.getValue(), {
+				parser: 'css',
+				plugins : [css],
+				singleQuote: true,
+			  });
+		  
+			  return [
+				{
+				  range: model.getFullModelRange(),
+				  text,
+				},
+			  ];
+			},
+		  });
 		window.editorJS = monaco.editor.create(document.querySelector('.editorJS'), {
 			language: 'javascript',
 			fontSize: 18,
