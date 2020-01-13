@@ -7,10 +7,9 @@ $("document").ready(() => {
   const submit = document.querySelector(".submit");
   const view = document.querySelector("webview");
   let win = require("electron").remote.getCurrentWindow();
-  let globalShortcut = require("electron").remote.globalShortcut;
-  const ipcRenderer = require("electron").ipcRenderer;
-  globalShortcut.unregister("CmdOrCtrl+Shift+I");
-  globalShortcut.register("CmdOrCtrl+Shift+I", () => {
+  const ipc = require("electron").ipcRenderer;
+  //Simple handler to open devTools for webview and not for main process
+  ipc.on("openWebviewDevTools", () => {
     view.openDevTools();
   });
   const autoComplete = data => {
@@ -71,19 +70,15 @@ $("document").ready(() => {
       .html("")
       .blur();
   };
-  //Simple handler to open devTools for webview and not for main process
-  ipcRenderer.on("openDevTools", function() {
-    view.openDevTools();
-  });
   view.addEventListener("did-start-loading", () => {
-    $(".window .indicator").html("Loading...");
+    $('.search .loader').show()
     searchBar.value = view.src;
     $(".autocomplete")
       .html("")
       .blur();
   });
   view.addEventListener("did-stop-loading", () => {
-    $(".window .indicator").html("");
+    $('.search .loader').hide()
     searchBar.value = view.src;
     $(".autocomplete")
       .html("")

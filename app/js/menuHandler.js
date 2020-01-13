@@ -1,4 +1,5 @@
 (function() {
+  const $ = require('jquery')
   const electron = require("electron");
   const path = require("path");
   const win = electron.remote.getCurrentWindow();
@@ -93,4 +94,7 @@
     })
   );
   titlebar.updateMenu(menu);
+  $('title').change(() => {
+    titlebar.updateTitle($('title').html())
+  })
 })();

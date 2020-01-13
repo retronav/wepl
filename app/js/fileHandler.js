@@ -31,8 +31,7 @@
           $(".downpanel .open-browser").click(() => {
             bw.openBrowser("http://127.0.0.1:80");
           });
-          $("title").html(__dir);
-          $(".titlebar-title").html($("title").html());
+          $("title").html(__dir + " - WEPL").trigger('change');
           ls.startServer(__dir);
           fs.readFile(path.join(__dir, "./index.html"), function(err, data) {
             if (err) {

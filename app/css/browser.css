@@ -99,3 +99,7 @@ body {
 .autocomplete .item:hover {
   background: #c0c0c0;
 }
+.search .loader{
+  height: 40px;
+  width: 40px;
+}
