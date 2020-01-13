@@ -7,10 +7,9 @@
     <!-- Add globals -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="./js/fileHandler.js"></script>
+    <script src="./js/fileHandler.js" async></script>
     <!-- INIT MONACO -->
     <script type="module" src="./js/editor.js"></script>
-    <script src="./js/menubar.js"></script>
     <link rel="stylesheet" href="./css/menubar.css">
     <link rel="stylesheet" href="./css/editor.css">
     <link rel="stylesheet" href="./css/main.css">
@@ -22,7 +21,7 @@
 </head>
 
 <body>
-    <div class="titlebar">
+    <!-- <div class="titlebar">
         <div class="titlebar-drag"></div>
         <div class="titlebar-title"></div>
         <div class="buttons">
@@ -36,7 +35,7 @@
                 <span class="codicon codicon-chrome-close"></span>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="main-content">
         <div class="setup-dialog">
             <button class="setup">Setup Project</button>
@@ -56,6 +55,7 @@
             <div class="downpanel-btn open-browser"><span class="codicon codicon-broadcast"></span> Go Live</div>
         </div>
     </div>
+    <script src="./js/menuHandler.js"></script>
 </body>
 
 </html>

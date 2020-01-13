@@ -6,6 +6,13 @@ $("document").ready(() => {
   const forward = document.querySelector(".forward");
   const submit = document.querySelector(".submit");
   const view = document.querySelector("webview");
+  let win = require("electron").remote.getCurrentWindow();
+  let globalShortcut = require("electron").remote.globalShortcut;
+  const ipcRenderer = require("electron").ipcRenderer;
+  globalShortcut.unregister("CmdOrCtrl+Shift+I");
+  globalShortcut.register("CmdOrCtrl+Shift+I", () => {
+    view.openDevTools();
+  });
   const autoComplete = data => {
     if (data === "" || data === null || data === undefined) {
     } else {
@@ -41,14 +48,49 @@ $("document").ready(() => {
     });
   };
   const changePage = () => {
-    view.src = "http://google.com/search?q=" + $(".search-bar").val();
-    $(".autocomplete").html("");
+    let URL = $(".search-bar").val();
+    if (URL.startsWith("//") || URL.startsWith("http")) {
+      view.src = decodeURIComponent(
+        require("url").format({
+          pathname: URL,
+          protocol: "http:",
+          slashes: true
+        })
+      );
+      $(".autocomplete")
+        .html("")
+        .blur();
+    } else {
+      $(".autocomplete")
+        .html("")
+        .blur();
+      view.src = "http://google.com/search?q=" + URL;
+    }
+    searchBar.value = view.src;
+    $(".autocomplete")
+      .html("")
+      .blur();
   };
+  //Simple handler to open devTools for webview and not for main process
+  ipcRenderer.on("openDevTools", function() {
+    view.openDevTools();
+  });
   view.addEventListener("did-start-loading", () => {
     $(".window .indicator").html("Loading...");
+    searchBar.value = view.src;
+    $(".autocomplete")
+      .html("")
+      .blur();
   });
   view.addEventListener("did-stop-loading", () => {
     $(".window .indicator").html("");
+    searchBar.value = view.src;
+    $(".autocomplete")
+      .html("")
+      .blur();
+  });
+  searchBar.addEventListener("click", () => {
+    $(".search-bar").select();
   });
   refresh.addEventListener("click", () => {
     view.reload();
@@ -66,7 +108,10 @@ $("document").ready(() => {
     if (e.keyCode === 13) changePage();
   });
   searchBar.addEventListener("keydown", () => {
-    if ($(".search-bar").val() === "") $(".autocomplete").html("");
+    if ($(".search-bar").val() === "")
+      $(".autocomplete")
+        .html("")
+        .blur();
     autoComplete($(".search-bar").val());
   });
   function getAllUrlParams(url) {

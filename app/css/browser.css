@@ -75,9 +75,13 @@ body {
   position: absolute;
   z-index: 999;
   display: block;
+  box-shadow: 3px 10px 23px 0px rgba(0,0,0,0.75);
   left: 0;
+  border: 1px solid transparent;
   height: fit-content;
-  width: 100%;
+  width: 95%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .autocomplete .item {
   background: #ffffff;
@@ -87,7 +91,11 @@ body {
   border-bottom: 1px solid #222222;
   vertical-align: middle;
 }
-
+.autocomplete .item:nth-last-child(1){
+  border-bottom: 0px solid #222222;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 .autocomplete .item:hover {
   background: #c0c0c0;
 }

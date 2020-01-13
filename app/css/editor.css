@@ -1,6 +1,6 @@
 :root{
     --main-color : #2b2f36;
-    --main-color-hover : #5E6269
+    --main-color-hover : #5E6269;
 }
 .editorHTML, .editorCSS, .editorJS {
     display: flex;
