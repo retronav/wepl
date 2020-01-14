@@ -27,12 +27,13 @@
         '<span class="codicon codicon-check"></span> Live'
       );
       Swal.fire({
-        title: "Success",
+        title: "<span style='color: #eee'>Success</span>",
         position: "top-end",
         background: "var(--main-color)",
-        html: "You're live at <a>http://127.0.0.1:80</a>",
+        html:
+        "<p style='color: #eee'>You're live at <b style='color: lightskyblue'>http://127.0.0.1:80</b></p>",
         icon: "success",
-        confirmButtonText: "That's cool"
+        confirmButtonText: "That's cool!",
       });
     };
     const setupStuff = () => {
@@ -43,16 +44,13 @@
         })
         .then(result => {
           let __dir = result.filePaths[0];
+          if (__dir === undefined || __dir === null) {
+            setupStuff();
+          }
           $(".downpanel .open-browser").click(() => {
             startServer(__dir);
-            $(".downpanel .open-browser").css(
-              "pointer-events",
-              "none",
-            );
-            $(".downpanel .open-browser").css(
-              "color",
-              "#666",
-            );
+            $(".downpanel .open-browser").css("pointer-events", "none");
+            $(".downpanel .open-browser").css("color", "#666");
           });
           $("title")
             .html(__dir + " - WEPL")

@@ -57,7 +57,7 @@
       label: "Browser",
       submenu: [
         {
-          label: "Open Browser",
+          label: "Open WEPL Browser",
           click: () => {
             bw.openBrowser();
           }
@@ -134,8 +134,8 @@
       label: "Editor",
       submenu: [
         {
-          label: "Prettier : Format Document",
-          accelerator: "Shift+Alt+F"
+          label: "Prettier : Format Document(No-click)",
+          accelerator: "Shift+Alt+F",
         },
         {
           label: "Live Server",
