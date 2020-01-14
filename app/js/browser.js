@@ -50,7 +50,7 @@ function openBrowser(urlToLoad) {
       submenu: [
         {
           label: "Open DevTools",
-          accelerator: "CmdOrCtrl+Shift+I",
+          accelerator: "CmdOrCtrl+Shift+D",
           click: () => win.webContents.send("openWebviewDevTools")
         },
         { type: "separator" },

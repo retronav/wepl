@@ -69,14 +69,18 @@
     position: relative;
     width: fit-content;
     padding: 3px 4px;
+    font-size: 0.9rem;
     float: right;
     color: white;
     height: 100%;
     line-height: 100%;
     vertical-align: middle;
-    text-align: center;
     cursor: pointer;
     user-select: none;
+}
+.downpanel .downpanel-btn span{
+    line-height: 100%;
+    vertical-align: middle;
 }
 .downpanel .downpanel-btn:hover{
     background: var(--main-color-hover);

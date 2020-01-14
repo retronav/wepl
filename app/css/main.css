@@ -2,6 +2,7 @@ body, html{
     width: 100%;
     height: 100%;
     background: var(--main-color);
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .setup-dialog{
     width: 100%;
@@ -13,6 +14,7 @@ body, html{
 }
 .setup-dialog button{
     position: absolute;
+    user-select: none;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
