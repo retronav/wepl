@@ -50,7 +50,7 @@ body {
   text-align: center;
   vertical-align: middle;
   border: 0px solid black;
-  transition: background 0.25s ease-in-out;
+  transition: background 0.15s ease-in-out;
 }
 .search .search-btn:hover {
   background: #c0c0c0;
