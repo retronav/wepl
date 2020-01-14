@@ -12,6 +12,17 @@ $("document").ready(() => {
   ipc.on("openWebviewDevTools", () => {
     view.openDevTools();
   });
+  //Handler to delete user history
+  ipc.on("deleteWebviewHistory", () => {
+    view.clearHistory();
+  });
+  //workaround for invisible cursor
+  view.addEventListener("dom-ready", event => {
+    // Remove this once https://github.com/electron/electron/issues/14474 is fixed
+    view.blur();
+
+    view.focus();
+  });
   const autoComplete = data => {
     if (data === "" || data === null || data === undefined) {
     } else {
@@ -49,6 +60,9 @@ $("document").ready(() => {
   const changePage = () => {
     let URL = $(".search-bar").val();
     if (URL.startsWith("//") || URL.startsWith("http")) {
+      $(".autocomplete")
+        .html("")
+        .blur();
       view.src = decodeURIComponent(
         require("url").format({
           pathname: URL,
@@ -56,9 +70,6 @@ $("document").ready(() => {
           slashes: true
         })
       );
-      $(".autocomplete")
-        .html("")
-        .blur();
     } else {
       $(".autocomplete")
         .html("")
@@ -71,19 +82,32 @@ $("document").ready(() => {
       .blur();
   };
   view.addEventListener("did-start-loading", () => {
-    $('.search .loader').show()
+    $(".search .loader").show();
     searchBar.value = view.src;
     $(".autocomplete")
       .html("")
       .blur();
   });
   view.addEventListener("did-stop-loading", () => {
-    $('.search .loader').hide()
+    $(".search .loader").hide();
     searchBar.value = view.src;
     $(".autocomplete")
       .html("")
       .blur();
   });
+  setInterval(() => {
+    if (!view.canGoBack()) {
+      back.querySelector("div").style.color = "#888";
+    } else {
+      back.querySelector("div").style.color = "inherit";
+    }
+    if (!view.canGoForward()) {
+      forward.querySelector("div").style.color = "#888";
+    } else {
+      forward.querySelector("div").style.color = "inherit";
+    }
+  }, 1500);
+
   searchBar.addEventListener("click", () => {
     $(".search-bar").select();
   });

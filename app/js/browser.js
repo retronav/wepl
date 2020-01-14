@@ -65,6 +65,16 @@ function openBrowser(urlToLoad) {
           click: () => win.webContents.reloadIgnoringCache()
         }
       ]
+    },
+    {
+      label : "Browser",
+      submenu: [
+        {
+          label: "Clear History",
+          accelerator: "CmdOrCtrl+Delete+H",
+          click: () => win.webContents.send("deleteWebviewHistory")
+        }
+      ]
     }
   ]);
   Menu.setApplicationMenu(menu);
