@@ -59,7 +59,7 @@ $("document").ready(() => {
   };
   const changePage = () => {
     let URL = $(".search-bar").val();
-    if (URL.startsWith("//") || URL.startsWith("http")) {
+    if (URL.startsWith("//")) {
       $(".autocomplete")
         .html("")
         .blur();
