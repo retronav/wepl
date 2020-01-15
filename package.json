@@ -1,12 +1,11 @@
 {
   "name": "wepl",
   "version": "0.0.1",
-  "description": "Develop Web Apps, faster.",
+  "description": "The rookie editor for developing web apps on the go.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "rimraf dist && electron-builder .",
-    "test-browser": "electron app/js/browser.js"
+    "dist": "rimraf dist && electron-builder ."
   },
   "author": "obnoxiousnerd",
   "license": "ISC",
