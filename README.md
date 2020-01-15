@@ -4,7 +4,7 @@ WEPL stands for WEb PLaygound. It is a application created to make web apps on t
 
 Here is a screenshot of the editor:
 
-![](.\screenshots\html-editor.png)
+![](./screenshots/html-editor.png)
 
 # Live Server, Emmet, Prettier
 
@@ -30,4 +30,4 @@ WEPL boasts of a built-in browser. To search for something, type it and hit <kbd
 
 To type a url, just add '//' before the url in the search bar:
 
-![](\screenshots\browser-url.gif)
+![](./screenshots/browser-url.gif)
