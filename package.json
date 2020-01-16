@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "rimraf dist && electron-builder ."
+    "dist": "rimraf dist && electron-builder . --ia32"
   },
   "author": "obnoxiousnerd",
   "license": "ISC",
@@ -23,6 +23,12 @@
   },
   "build": {
     "appId": "code.editor",
+    "files": [
+      "**/*",
+      "!.gitignore",
+      "!.main.js",
+      "!screenshots${/*}"
+    ],
     "productName": "WEPL",
     "copyright": "Copyright © 2020 obnoxiosunerd",
     "icon": "./app/icon/appicon.ico",
@@ -30,8 +36,8 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "./app/icon/appicon.ico",
-      "uninstallDisplayName": "WEPL",
-      "artifactName": "WEPLSetup-${version}.exe"
+      "uninstallDisplayName": "Uninstall WEPL",
+      "artifactName": "${productName}Setup-${arch}-${version}.${ext}"
     }
   },
   "devDependencies": {
