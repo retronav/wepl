@@ -49,9 +49,14 @@ function openBrowser(urlToLoad) {
       label: "Window",
       submenu: [
         {
-          label: "Open DevTools",
+          label: "Open DevTools(Browser)",
           accelerator: "CmdOrCtrl+Shift+D",
           click: () => win.webContents.send("openWebviewDevTools")
+        },
+        {
+          label: "Open DevTools(Window)",
+          accelerator: "CmdOrCtrl+Shift+E",
+          click: () => win.webContents.openDevTools({ mode: "right" })
         },
         { type: "separator" },
         {
@@ -67,7 +72,7 @@ function openBrowser(urlToLoad) {
       ]
     },
     {
-      label : "Browser",
+      label: "Browser",
       submenu: [
         {
           label: "Clear History",

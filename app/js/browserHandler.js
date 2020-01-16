@@ -59,13 +59,12 @@ $("document").ready(() => {
   };
   const changePage = () => {
     let URL = $(".search-bar").val();
-    if (URL.startsWith("http://" || "https://")) {
+    if (URL.startsWith("http://") || URL.startsWith("https://")) {
       $(".autocomplete")
         .html("")
         .blur();
       view.src = URL;
-    }
-    if (URL.startsWith("//")) {
+    } else if (URL.startsWith("//")) {
       $(".autocomplete")
         .html("")
         .blur();
@@ -133,19 +132,33 @@ $("document").ready(() => {
     if (
       $(".search-bar")
         .val()
-        .startsWith("//")
+        .startsWith("//") ||
+      $(".search-bar")
+        .val()
+        .startsWith("https://") ||
+      $(".search-bar")
+        .val()
+        .startsWith("http://")
     )
       $(".autocomplete")
         .html("")
         .blur();
     if (e.keyCode === 13) changePage();
   });
-  searchBar.addEventListener("keydown", () => {
-    if ($(".search-bar").val() === "")
-      $(".autocomplete")
-        .html("")
-        .blur();
-    autoComplete($(".search-bar").val());
+  searchBar.addEventListener("keydown", e => {
+    if (
+      e.keyCode !== 13 &&
+      e.keyCode !== 37 &&
+      e.keyCode !== 38 &&
+      e.keyCode !== 39 &&
+      e.keyCode !== 40
+    ) {
+      if ($(".search-bar").val() === "")
+        $(".autocomplete")
+          .html("")
+          .blur();
+      autoComplete($(".search-bar").val());
+    }
   });
   function getAllUrlParams(url) {
     // get query string from url (optional) or window
