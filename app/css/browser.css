@@ -100,4 +100,7 @@ body {
 .search .loader{
   height: 40px;
   width: 40px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
 }

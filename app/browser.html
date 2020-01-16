@@ -7,11 +7,16 @@
     <title>WEPL Browser</title>
     <link rel="stylesheet" href="./css/codicon.css" />
     <link rel="stylesheet" href="./css/browser.css" />
+    <link rel="stylesheet" href="./css/loader.css">
     <script src="./js/browserHandler.js"></script>
   </head>
   <body>
     <div class="search">
-      <img hidden src="./css/browser-loader.gif" class="loader">
+      <div class="loader" hidden>
+        <svg class="spinner" width="35" height="35" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+       </svg>
+      </div>
       <input type="text" class="search-bar" />
       <button class="search-btn submit">
         <div class="codicon codicon-search"></div>
