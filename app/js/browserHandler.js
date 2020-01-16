@@ -70,6 +70,11 @@ $("document").ready(() => {
           slashes: true
         })
       );
+    } else if (URL.startsWith("http://" || "https://")) {
+      $(".autocomplete")
+        .html("")
+        .blur();
+      view.src = URL;
     } else {
       $(".autocomplete")
         .html("")
@@ -124,6 +129,14 @@ $("document").ready(() => {
     changePage();
   });
   searchBar.addEventListener("keyup", e => {
+    if (
+      $(".search-bar")
+        .val()
+        .startsWith("//")
+    )
+      $(".autocomplete")
+        .html("")
+        .blur();
     if (e.keyCode === 13) changePage();
   });
   searchBar.addEventListener("keydown", () => {
