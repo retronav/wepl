@@ -6,6 +6,18 @@ $("document").ready(() => {
   const forward = document.querySelector(".forward");
   const submit = document.querySelector(".submit");
   const view = document.querySelector("webview");
+  view.shadowRoot
+    .querySelector("iframe")
+    .setAttribute(
+      "sandbox",
+      "allow-forms allow-modals allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts"
+    );
+  view.shadowRoot
+    .querySelector("iframe")
+    .setAttribute(
+      "allow",
+      "geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media"
+    );
   let win = require("electron").remote.getCurrentWindow();
   const ipc = require("electron").ipcRenderer;
   //Simple handler to open devTools for webview and not for main process
