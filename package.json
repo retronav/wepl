@@ -14,7 +14,7 @@
     "dialogs": "^2.0.1",
     "electron-config": "^2.0.0",
     "emmet-monaco-es": "^4.3.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "live-server": "^1.2.1",
     "monaco-editor": "^0.19.0",
     "opn": "^6.0.0",
