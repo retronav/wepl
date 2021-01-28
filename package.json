@@ -43,7 +43,7 @@
   "devDependencies": {
     "builder": "^5.0.0",
     "electromon": "^1.0.10",
-    "electron": "^7.1.7",
+    "electron": "^9.4.0",
     "electron-builder": "^21.2.0"
   }
 }
